@@ -4,3 +4,8 @@
 PracticeData StructuresTreesTree: Height of a Binary Tree
 Tree: Height of a Binary Tree
 https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
+
+== case002
+PracticeData StructuresTreesTree: Level Order Traversal
+Tree: Level Order Traversal
+https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
