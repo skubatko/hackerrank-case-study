@@ -13,6 +13,7 @@
     <modules>
         <module>case001</module>
         <module>case002</module>
+        <module>case003</module>
     </modules>
 
     <developers>
