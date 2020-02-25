@@ -1,0 +1,6 @@
+= Hackerrank case studies https://www.hackerrank.com/
+
+== case001
+PracticeData StructuresTreesTree: Height of a Binary Tree
+Tree: Height of a Binary Tree
+https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
