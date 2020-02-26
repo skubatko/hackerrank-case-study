@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Case004 {
+public class Case004Naive {
     /*
      * Complete the contacts function below.
      */
