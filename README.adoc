@@ -1,11 +1,21 @@
-= Hackerrank case studies https://www.hackerrank.com/
+= HackerRank case studies https://www.hackerrank.com/
 
 == case001
-PracticeData StructuresTreesTree: Height of a Binary Tree
+Practice > Data Structures > Trees > Tree: Height of a Binary Tree
 Tree: Height of a Binary Tree
 https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem
 
 == case002
-PracticeData StructuresTreesTree: Level Order Traversal
+Practice > Data Structures > Trees > Tree: Level Order Traversal
 Tree: Level Order Traversal
 https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
+
+== case003
+Practice > Data Structures > Stacks > Balanced Brackets
+Balanced Brackets
+https://www.hackerrank.com/challenges/balanced-brackets/problem
+
+== case004
+Practice > Data Structures > Trie > Contacts
+Contacts
+https://www.hackerrank.com/challenges/contacts/problem
