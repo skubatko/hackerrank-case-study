@@ -3,15 +3,47 @@ package ru.skubatko.dev.hackerrank.case005;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Case005 {
 
-    /*
-     * Complete the runningMedian function below.
-     */
     static double[] runningMedian(int[] a) {
-        return new double[0];
+        double[] result = new double[a.length];
+        Heap heap = new Heap();
+        for (int i = 0; i < a.length; i++) {
+            heap.add(a[i]);
+            result[i] = heap.getMedian();
+        }
+
+        return result;
+    }
+
+    static class Heap {
+        private Queue<Integer> minHeap = new PriorityQueue<>();
+        private Queue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+
+        void add(int num) {
+            if (minHeap.size() == maxHeap.size()) {
+                maxHeap.offer(num);
+                minHeap.offer(maxHeap.poll());
+            } else {
+                minHeap.offer(num);
+                maxHeap.offer(minHeap.poll());
+            }
+        }
+
+        double getMedian() {
+            double median;
+            if (minHeap.size() > maxHeap.size()) {
+                median = minHeap.peek();
+            } else {
+                median = (minHeap.peek() + maxHeap.peek()) / 2.0;
+            }
+            return median;
+        }
     }
 
     private static final Scanner scanner = new Scanner(System.in);
