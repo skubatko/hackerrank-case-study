@@ -19,3 +19,8 @@ https://www.hackerrank.com/challenges/balanced-brackets/problem
 Practice > Data Structures > Trie > Contacts
 Contacts
 https://www.hackerrank.com/challenges/contacts/problem
+
+== case005
+Practice > Data Structures > Heap > Find the Running Median
+Find the Running Median
+https://www.hackerrank.com/challenges/find-the-running-median/problem

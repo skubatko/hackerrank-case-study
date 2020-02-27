@@ -15,6 +15,7 @@
         <module>case002</module>
         <module>case003</module>
         <module>case004</module>
+        <module>case005</module>
     </modules>
 
     <developers>
