@@ -1,3 +1,5 @@
+package ru.skubatko.dev.hackerrank.case004;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

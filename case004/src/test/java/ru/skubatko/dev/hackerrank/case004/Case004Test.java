@@ -1,3 +1,5 @@
+package ru.skubatko.dev.hackerrank.case004;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Rule;
