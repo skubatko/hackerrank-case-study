@@ -24,3 +24,8 @@ https://www.hackerrank.com/challenges/contacts/problem
 Practice > Data Structures > Heap > Find the Running Median
 Find the Running Median
 https://www.hackerrank.com/challenges/find-the-running-median/problem
+
+== case006
+Practice > Data Structures > Trees > Swap Nodes [Algo]
+Swap Nodes [Algo]
+https://www.hackerrank.com/challenges/swap-nodes-algo/problem
