@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,9 +23,19 @@ public class Case006 {
 
     static class Tree {
         private int[] nodes;
+        private int levels;
 
-        public Tree(int[][] indexes) {
-            nodes = new int[2 * indexes.length + 1];
+        Tree(int[][] indexes) {
+            int size = 1;
+            levels = 0;
+            while ((size - 1) < 2 * indexes.length + 1) {
+                size *= 2;
+                levels++;
+            }
+            nodes = new int[size - 1];
+
+            Arrays.fill(nodes, -1);
+
             nodes[0] = 1;
             for (int i = 0; i < indexes.length; i++) {
                 nodes[2 * i + 1] = indexes[i][0];
@@ -51,20 +62,29 @@ public class Case006 {
             }
         }
 
-        public void swap(int query) {
-
+        void swap(int k) {
+            int level = k;
+            for (int i = 2; level < levels; i++) {
+                swapLevel(level);
+                level = k * i;
+            }
         }
 
-        static class Node {
-            int value;
-            Node left;
-            Node right;
-
-            Node(int value) {
-                this.value = value;
-                right = null;
-                left = null;
+        private void swapLevel(int level) {
+            int idxFirstInc = level > 1 ? (1 << (level - 1)) - 1 : 0;
+            int idxLastExc = (1 << level) - 1;
+            for (int j = idxFirstInc; j < idxLastExc; j++) {
+                swapChildren(j);
             }
+        }
+
+        private void swapChildren(int i) {
+            int leftIdx = 2 * i + 1;
+            int rightIdx = leftIdx + 1;
+
+            int tmpValue = nodes[leftIdx];
+            nodes[leftIdx] = nodes[rightIdx];
+            nodes[rightIdx] = tmpValue;
         }
     }
 
