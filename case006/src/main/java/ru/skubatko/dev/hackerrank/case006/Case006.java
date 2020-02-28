@@ -70,8 +70,8 @@ public class Case006 {
 
             if (current.level % k == 0) {
                 Node tmp = current.left;
-                current.right = current.left;
-                current.left = tmp;
+                current.left = current.right;
+                current.right = tmp;
             }
 
             swap(current.left, k);
