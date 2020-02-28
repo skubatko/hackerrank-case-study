@@ -4,8 +4,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Case006 {
@@ -22,69 +23,71 @@ public class Case006 {
     }
 
     static class Tree {
-        private int[] nodes;
-        private int levels;
+        private Node root = new Node(1, 1);
 
         Tree(int[][] indexes) {
-            int size = 1;
-            levels = 0;
-            while ((size - 1) < 2 * indexes.length + 1) {
-                size *= 2;
-                levels++;
-            }
-            nodes = new int[size - 1];
-
-            Arrays.fill(nodes, -1);
-
-            nodes[0] = 1;
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
             for (int i = 0; i < indexes.length; i++) {
-                nodes[2 * i + 1] = indexes[i][0];
-                nodes[2 * i + 2] = indexes[i][1];
+                Node current = queue.remove();
+                int leftValue = indexes[i][0];
+                if (leftValue != -1) {
+                    current.left = new Node(leftValue, current.level + 1);
+                    queue.add(current.left);
+                }
+                int rightValue = indexes[i][1];
+                if (rightValue != -1) {
+                    current.right = new Node(rightValue, current.level + 1);
+                    queue.add(current.right);
+                }
             }
         }
 
         int[] traverseInOrder() {
-            List<Integer> list = new ArrayList<>();
-            traverseInOrder(0, list);
-            return list.stream().mapToInt(Integer::intValue).toArray();
+            List<Integer> result = new ArrayList<>();
+            traverseInOrder(root, result);
+            return result.stream().mapToInt(Integer::intValue).toArray();
         }
 
-        private void traverseInOrder(int current, List<Integer> result) {
-            if (current < nodes.length) {
-                traverseInOrder(2 * current + 1, result);
-
-                int value = nodes[current];
-                if (value != -1) {
-                    result.add(value);
-                }
-
-                traverseInOrder(2 * current + 2, result);
+        private void traverseInOrder(Node current, List<Integer> result) {
+            if (current == null) {
+                return;
             }
+
+            traverseInOrder(current.left, result);
+            result.add(current.value);
+            traverseInOrder(current.right, result);
         }
 
         void swap(int k) {
-            int level = k;
-            for (int i = 2; level < levels; i++) {
-                swapLevel(level);
-                level = k * i;
-            }
+            swap(root, k);
         }
 
-        private void swapLevel(int level) {
-            int idxFirstInc = level > 1 ? (1 << (level - 1)) - 1 : 0;
-            int idxLastExc = (1 << level) - 1;
-            for (int j = idxFirstInc; j < idxLastExc; j++) {
-                swapChildren(j);
+        private void swap(Node current, int k) {
+            if (current == null) {
+                return;
             }
+
+            if (current.level % k == 0) {
+                Node tmp = current.left;
+                current.right = current.left;
+                current.left = tmp;
+            }
+
+            swap(current.left, k);
+            swap(current.right, k);
         }
 
-        private void swapChildren(int i) {
-            int leftIdx = 2 * i + 1;
-            int rightIdx = leftIdx + 1;
+        static class Node {
+            Node left;
+            Node right;
+            int value;
+            int level;
 
-            int tmpValue = nodes[leftIdx];
-            nodes[leftIdx] = nodes[rightIdx];
-            nodes[rightIdx] = tmpValue;
+            Node(int value, int level) {
+                this.value = value;
+                this.level = level;
+            }
         }
     }
 
