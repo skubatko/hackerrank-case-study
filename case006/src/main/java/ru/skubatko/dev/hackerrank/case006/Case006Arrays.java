@@ -15,21 +15,21 @@ public class Case006Arrays {
     private static int[][] resultArray;
 
     static int[][] swapNodes(int[][] indexes, int[] queries) {
-        int idxLength = indexes.length + 1;
-        leftArray = new int[idxLength];
-        rightArray = new int[idxLength];
-        depthArray = new int[idxLength];
+        int depthLength = indexes.length + 1;
 
+        leftArray = new int[depthLength];
+        rightArray = new int[depthLength];
         for (int i = 0; i < indexes.length; i++) {
             leftArray[i + 1] = indexes[i][0];
             rightArray[i + 1] = indexes[i][1];
         }
 
+        depthArray = new int[depthLength];
         calcDepth(1, 1);
 
         resultArray = new int[queries.length][];
         for (int i = 0; i < queries.length; i++) {
-            for (int depth = 1; depth < idxLength; depth++) {
+            for (int depth = 1; depth < depthLength; depth++) {
                 if (depthArray[depth] % queries[i] == 0) {
                     swap(depth);
                 }
