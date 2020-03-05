@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Case006Arrays {
+    // https://ideone.com/Fml7Sm can help
 
     private static int[] leftArray;
     private static int[] rightArray;
