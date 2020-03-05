@@ -1,13 +1,12 @@
 package ru.skubatko.dev.hackerrank.case006;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.skubatko.dev.hackerrank.case006.Case006.swapNodes;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
 
-public class Case006Test {
+public class Case006TreeTest {
 
     @Rule
     public Timeout timeout = Timeout.seconds(5);
@@ -26,7 +25,7 @@ public class Case006Test {
                 {2, 1, 3}
         };
 
-        int[][] result = swapNodes(indexes, queries);
+        int[][] result = Case006Tree.swapNodes(indexes, queries);
 
         assertThat(result).isEqualTo(expected);
     }
@@ -46,7 +45,7 @@ public class Case006Test {
                 {4, 2, 1, 5, 3}
         };
 
-        int[][] result = swapNodes(indexes, queries);
+        int[][] result = Case006Tree.swapNodes(indexes, queries);
 
         assertThat(result).isEqualTo(expected);
     }
@@ -73,7 +72,7 @@ public class Case006Test {
                 {2, 6, 9, 4, 1, 3, 7, 5, 10, 8, 11}
         };
 
-        int[][] result = swapNodes(indexes, queries);
+        int[][] result = Case006Tree.swapNodes(indexes, queries);
 
         assertThat(result).isEqualTo(expected);
     }
@@ -106,7 +105,7 @@ public class Case006Test {
                 {9, 5, 14, 8, 2, 13, 7, 12, 4, 1, 3, 17, 11, 16, 6, 10, 15}
         };
 
-        int[][] result = swapNodes(indexes, queries);
+        int[][] result = Case006Tree.swapNodes(indexes, queries);
 
         assertThat(result).isEqualTo(expected);
     }

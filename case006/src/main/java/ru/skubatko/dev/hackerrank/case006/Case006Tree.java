@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Case006 {
+public class Case006Tree {
 
     static int[][] swapNodes(int[][] indexes, int[] queries) {
         Tree tree = new Tree(indexes);
